@@ -4,14 +4,14 @@ import task1.ua.training.View;
 
 import java.util.Random;
 
-public class ModelInitializer {
+public class InitializeModel {
 
     private View view;
     private static final int DEFAULT_START_VALUE_OF_RANGE = 0;
     private static final int DEFAULT_FINISH_VALUE_OF_RANGE = 100;
     private Random random = new Random();
 
-    public ModelInitializer(View view) {
+    public InitializeModel(View view) {
         this.view = view;
     }
 
@@ -23,12 +23,12 @@ public class ModelInitializer {
         return DEFAULT_START_VALUE_OF_RANGE;
     }
 
-    public int receiveNewFirstValue(int currentStartValueRange, int currentFinishValueRange) {
+    public int receiveNewFirstValue() {
         int rangeValue = fillNewLimitOfRange(true);
         return rangeValue;
     }
 
-    public int receiveNewFinishValue(int currentStartValueRange, int currentFinishValueRange) {
+    public int receiveNewFinishValue(int currentStartValueRange) {
 
         int rangeValue = fillNewLimitOfRange(false);
 

@@ -1,19 +1,19 @@
 package task1.ua.training;
 
+import task1.ua.training.model.InitializeModel;
 import task1.ua.training.model.Model;
-import task1.ua.training.model.ModelInitializer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
 
-    private ModelInitializer modelInitializer;
+    private InitializeModel initializeModel;
     private View view;
     private List<Model> models = new ArrayList<>();
 
-    public Controller(ModelInitializer modelInitializer, View view) {
-        this.modelInitializer = modelInitializer;
+    public Controller(InitializeModel initializeModel, View view) {
+        this.initializeModel = initializeModel;
         this.view = view;
     }
 
@@ -72,10 +72,10 @@ public class Controller {
     }
 
     public Model initializeModel() {
-        Model model = new Model(modelInitializer.receiveDefaultStartValueOfRange(), modelInitializer.receiveDefaultFinishValueOfRange());
-        model.setStartValueOfRange(modelInitializer.receiveNewFirstValue(model.getStartValueOfRange(), model.getFinishValueOfRange()));
-        model.setFinishValueOfRange(modelInitializer.receiveNewFinishValue(model.getStartValueOfRange(), model.getFinishValueOfRange()));
-        model.setRequiredNumber(modelInitializer.reveiveRandomRequiredNumber(model.getStartValueOfRange(), model.getFinishValueOfRange()));
+        Model model = new Model(initializeModel.receiveDefaultStartValueOfRange(), initializeModel.receiveDefaultFinishValueOfRange());
+        model.setStartValueOfRange(initializeModel.receiveNewFirstValue());
+        model.setFinishValueOfRange(initializeModel.receiveNewFinishValue(model.getStartValueOfRange()));
+        model.setRequiredNumber(initializeModel.reveiveRandomRequiredNumber(model.getStartValueOfRange(), model.getFinishValueOfRange()));
         return model;
     }
 
