@@ -71,11 +71,11 @@ public class View {
         printMessage("Count of attempts: " + attemptsCount);
     }
 
-    public void  printMessageAboutLessNumber() {
+    public void printMessageAboutLessNumber() {
         printMessage("Oops...The selected number is less than the specified");
     }
 
-    public void  printMessageAboutGreaterNumber() {
+    public void printMessageAboutGreaterNumber() {
         printMessage("Oops...The selected number is greater than the specified");
     }
 

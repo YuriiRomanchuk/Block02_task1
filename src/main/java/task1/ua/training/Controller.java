@@ -41,7 +41,7 @@ public class Controller {
         }
     }
 
-    public void playGame(Model currentModel) {
+    private void playGame(Model currentModel) {
 
         boolean startGame = true;
 
@@ -71,7 +71,7 @@ public class Controller {
         }
     }
 
-    public Model initializeModel() {
+    private Model initializeModel() {
         Model model = new Model(initializeModel.receiveDefaultStartValueOfRange(), initializeModel.receiveDefaultFinishValueOfRange());
         model.setStartValueOfRange(initializeModel.receiveNewFirstValue());
         model.setFinishValueOfRange(initializeModel.receiveNewFinishValue(model.getStartValueOfRange()));
