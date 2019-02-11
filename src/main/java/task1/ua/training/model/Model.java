@@ -1,4 +1,5 @@
 package task1.ua.training.model;
+
 import java.util.ArrayList;
 import java.util.List;
 

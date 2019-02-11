@@ -1,5 +1,7 @@
 package task1.ua.training;
 
+import task1.ua.training.model.Model;
+
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -52,11 +54,11 @@ public class View {
         return receiveValue();
     }
 
-    public void printAllStatistics(String attempts, int attemptsCount, int firstValue, int lastValue) {
+    public void printAllStatistics(Model model) {
         printMessage("//-------------------------------------");
-        printMessageCurrentRange(firstValue, lastValue);
-        printAttemptsOfUser(attempts);
-        printCountOfAttempts(attemptsCount);
+        printMessageCurrentRange(model.getStartValueOfRange(), model.getFinishValueOfRange());
+        printAttemptsOfUser(model.getAttempts().toString());
+        printCountOfAttempts(model.getAttempts().size());
     }
 
     public void printMessageForWin() {

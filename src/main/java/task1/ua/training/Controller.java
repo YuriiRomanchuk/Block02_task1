@@ -1,41 +1,36 @@
 package task1.ua.training;
 
-import task1.ua.training.model.InitializeModel;
 import task1.ua.training.model.Model;
+import task1.ua.training.model.ModelInitializer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
 
-    private InitializeModel initializeModel;
+    private ModelInitializer modelInitializer;
     private View view;
     private List<Model> models = new ArrayList<>();
 
-    public Controller(InitializeModel initializeModel, View view) {
-        this.initializeModel = initializeModel;
+    public Controller(ModelInitializer modelInitializer, View view) {
+        this.modelInitializer = modelInitializer;
         this.view = view;
     }
 
-    public void AccessPoint() {
+    public void accessPoint() {
 
         boolean startProgram = true;
 
         while (startProgram) {
 
-            Model currentModel = initializeModel();
+            Model currentModel = modelInitializer.initializeModel();
             view.printMessageCurrentRange(currentModel.getStartValueOfRange(), currentModel.getFinishValueOfRange());
 
             playGame(currentModel);
             models.add(currentModel);
 
             if (view.receiveAboutContinueProgram() != 1) {
-
-                models.forEach(m -> view.printAllStatistics(m.getAttempts().toString(),
-                        m.getAttempts().size(),
-                        m.getStartValueOfRange(),
-                        m.getFinishValueOfRange()));
-
+                models.forEach(m -> view.printAllStatistics(currentModel));
                 startProgram = false;
             }
         }
@@ -69,14 +64,6 @@ public class Controller {
                 view.printMessageAboutLessNumber();
             }
         }
-    }
-
-    private Model initializeModel() {
-        Model model = new Model(initializeModel.receiveDefaultStartValueOfRange(), initializeModel.receiveDefaultFinishValueOfRange());
-        model.setStartValueOfRange(initializeModel.receiveNewFirstValue());
-        model.setFinishValueOfRange(initializeModel.receiveNewFinishValue(model.getStartValueOfRange()));
-        model.setRequiredNumber(initializeModel.reveiveRandomRequiredNumber(model.getStartValueOfRange(), model.getFinishValueOfRange()));
-        return model;
     }
 
 }

@@ -1,13 +1,13 @@
 package task1.ua.training;
 
-import task1.ua.training.model.InitializeModel;
+import task1.ua.training.model.ModelInitializer;
 
 public class MainClass {
 
     public static void main(String[] args) {
         View view = new View(System.in);
-        InitializeModel initializeModel = new InitializeModel(view);
+        ModelInitializer initializeModel = new ModelInitializer(view);
         Controller controller = new Controller(initializeModel, view);
-        controller.AccessPoint();
+        controller.accessPoint();
     }
 }
