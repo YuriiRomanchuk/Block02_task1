@@ -19,28 +19,28 @@ public class Controller {
 
     public void accessPoint() {
 
-        boolean startProgram = true;
+        boolean continueProgram = true;
 
-        while (startProgram) {
+        while (continueProgram) {
 
             Model currentModel = modelInitializer.initializeModel();
-            view.printMessageCurrentRange(currentModel.getStartValueOfRange(), currentModel.getFinishValueOfRange());
+            view.printMessageCurrentRange(currentModel);
 
             playGame(currentModel);
             models.add(currentModel);
 
             if (view.receiveAboutContinueProgram() != 1) {
-                models.forEach(m -> view.printAllStatistics(currentModel));
-                startProgram = false;
+                models.forEach(m -> view.printAllStatistics(m));
+                continueProgram = false;
             }
         }
     }
 
     private void playGame(Model currentModel) {
 
-        boolean startGame = true;
+        boolean continueGame = true;
 
-        while (startGame) {
+        while (continueGame) {
 
             int userNumber = view.receiveNumberFromUser();
 
@@ -51,19 +51,22 @@ public class Controller {
 
             List<Integer> attemmpts = currentModel.getAttempts();
             attemmpts.add(userNumber);
-            currentModel.setAttempts(attemmpts);
 
             if (userNumber == currentModel.getRequiredNumber()) {
                 view.printMessageForWin();
                 view.printAttemptsOfUser(attemmpts.toString());
                 view.printCountOfAttempts(attemmpts.size());
-                startGame = false;
+                continueGame = false;
             } else if (userNumber > currentModel.getRequiredNumber()) {
                 view.printMessageAboutGreaterNumber();
+                currentModel.setFinishValueOfRange(userNumber);
+                view.printMessageCurrentRange(currentModel);
             } else {
+                ;
                 view.printMessageAboutLessNumber();
+                currentModel.setStartValueOfRange(userNumber);
+                view.printMessageCurrentRange(currentModel);
             }
         }
     }
-
 }

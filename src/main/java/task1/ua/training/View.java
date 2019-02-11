@@ -45,8 +45,8 @@ public class View {
         printMessage(WRONG_INPUT_DATA + message);
     }
 
-    public void printMessageCurrentRange(int currentStartValueRange, int currentFinishValueRange) {
-        printMessage(String.format(CURRENT_RANGE, currentStartValueRange, currentFinishValueRange));
+    public void printMessageCurrentRange(Model currentModel) {
+        printMessage(String.format(CURRENT_RANGE, currentModel.getStartValueOfRange(), currentModel.getFinishValueOfRange()));
     }
 
     public int receiveNumberFromUser() {
@@ -56,7 +56,7 @@ public class View {
 
     public void printAllStatistics(Model model) {
         printMessage("//-------------------------------------");
-        printMessageCurrentRange(model.getStartValueOfRange(), model.getFinishValueOfRange());
+        printMessageCurrentRange(model);
         printAttemptsOfUser(model.getAttempts().toString());
         printCountOfAttempts(model.getAttempts().size());
     }

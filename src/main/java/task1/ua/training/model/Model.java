@@ -36,16 +36,12 @@ public class Model {
         return attempts;
     }
 
-    public void setAttempts(List<Integer> attempts) {
-        this.attempts = attempts;
-    }
-
     public int getRequiredNumber() {
         return requiredNumber;
     }
 
-    public void setRequiredNumber(int requiredNumbe) {
-        this.requiredNumber = requiredNumbe;
+    public void setRequiredNumber(int requiredNumber) {
+        this.requiredNumber = requiredNumber;
     }
 }
 
