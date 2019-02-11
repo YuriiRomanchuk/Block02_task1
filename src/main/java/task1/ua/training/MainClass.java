@@ -9,5 +9,5 @@ public class MainClass {
         ModelInitializer initializeModel = new ModelInitializer(view);
         Controller controller = new Controller(initializeModel, view);
         controller.accessPoint();
-    }
+   }
 }

@@ -19,7 +19,7 @@ public class ModelInitializer {
         Model model = new Model(DEFAULT_START_VALUE_OF_RANGE, DEFAULT_FINISH_VALUE_OF_RANGE);
         model.setStartValueOfRange(receiveNewFirstValue());
         model.setFinishValueOfRange(receiveNewFinishValue(model.getStartValueOfRange()));
-        model.setRequiredNumber(reveiveRandomRequiredNumber(model.getStartValueOfRange(), model.getFinishValueOfRange()));
+        model.setRequiredNumber(receiveRandomRequiredNumber(model.getStartValueOfRange(), model.getFinishValueOfRange()));
         return model;
     }
 
@@ -52,7 +52,7 @@ public class ModelInitializer {
         return rangeValue;
     }
 
-    public int reveiveRandomRequiredNumber(int currentStartValueRange, int currentFinishValueRange) {
+    public int receiveRandomRequiredNumber(int currentStartValueRange, int currentFinishValueRange) {
         return random.ints(currentStartValueRange, currentFinishValueRange).iterator().nextInt();
     }
 
