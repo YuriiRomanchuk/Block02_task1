@@ -53,7 +53,7 @@ public class ModelInitializer {
     }
 
     public int receiveRandomRequiredNumber(int currentStartValueRange, int currentFinishValueRange) {
-        return random.ints(currentStartValueRange, currentFinishValueRange).iterator().nextInt();
+        return random.ints(currentStartValueRange+1, currentFinishValueRange-1).iterator().nextInt();
     }
 
 }
