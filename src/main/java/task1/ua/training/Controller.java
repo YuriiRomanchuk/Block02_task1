@@ -62,7 +62,6 @@ public class Controller {
                 currentModel.setFinishValueOfRange(userNumber);
                 view.printMessageCurrentRange(currentModel);
             } else {
-                ;
                 view.printMessageAboutLessNumber();
                 currentModel.setStartValueOfRange(userNumber);
                 view.printMessageCurrentRange(currentModel);
